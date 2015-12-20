@@ -44,3 +44,38 @@ or define it when building (syntax: imagename:tagname, by default, tagname=lates
 ```
 sudo docker build -t imagename .
 ```
+
+
+inspect tar file:
+```
+tar tf file.tar
+```
+
+
+- Pushing images to the Docker Hub
+```
+sudo docker run -t --name="yournewname" -t ubuntu /bin/bash
+```
+Then make some changes in container:
+```
+mkdir newdolder
+```
+Commit:
+```
+sudo docker commit -m="message" yournewname yourdockeraccount/imagename
+```
+push:
+```
+sudo docker push yourdockeraccount/imagename
+sudo docker login
+```
+Delete:
+```
+sudo docker rmi yourdockeraccount/imagename
+```
+
+Because we cannot find our newly created image locally, we need to pull from remote
+```
+sudo docker run -i -name="yournewname" -t yourdockeraccount/imagename
+```
+
