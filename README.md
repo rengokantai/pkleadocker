@@ -79,3 +79,40 @@ Because we cannot find our newly created image locally, we need to pull from rem
 sudo docker run -i -name="yournewname" -t yourdockeraccount/imagename
 ```
 
+OR, we can build image from dockerfile
+```
+sudo docker build -t="yourdockeraccount/imagename" .
+sudo docker run -t --name="yournewname" -t yourdockeraccount/imagename
+sudo docker push yourdockeraccount/imagename
+sudo docker login
+```
+
+#### cp7
+- data volume
+First add volume in dockerfile:
+```
+VOLUME /mountvolume
+```
+Build:
+```
+sudo docker build -t image-name
+```
+inspect the image:
+```
+sudo docker inspect image-name
+```
+run:
+```
+sudo docker run --rm -it image-name
+mount
+```
+inspect the container:
+```
+sudo docker inspect 123456
+```
+
+Or, we can explicitly appoint mount point
+```
+sudo docker run –v /MountPoint -it ubuntu:14.04
+```
+
