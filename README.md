@@ -98,6 +98,10 @@ ENTRYPOINT->assign commands. can be overriden
 ```
 sudo docker run --entrypoint="/bin/sh" -it yd
 ```
+show biuld history
+```
+sudo docker history yd
+```
 
 By default, the tag name is empty,
 Add a tag:
