@@ -161,6 +161,33 @@ to check ip of container:
 docker inspect <idofcontainer>
 ```
 
+Ubuntu install apache2 (in centos is httpd), in Dockerfile
+```
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
+ENV APACHE_LOG_DIR /var/log/apache2
+```
+set entrypoint.(must run in foreground)
+```
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+```
+build and run
+```
+sudo docker build -t apache2 .
+sudo docker run -d apache2
+sudo docker logs 43777
+```
+
+inspect ip
+```
+sudo docker inspect --format='{{.NetworkSettings.IPAddress}}' 43777
+```
+get ip and connect
+```
+wget -qO- 172.17.0.1
+```
+
+
+
 #### cp7
 - data volume
 First add volume in dockerfile:
