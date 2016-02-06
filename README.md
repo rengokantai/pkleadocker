@@ -69,6 +69,16 @@ Same as
 sudo docker rm 'sudo docker ps -aq --no-trunc'
 ```
 
+run docker as deamon
+```
+docker run -d ubuntu:14.04
+```
+
+show logs
+```
+docker logs 43777
+```
+
 -Dockerfile
 basic:if Dockerfile is in current dict,
 ```
@@ -80,6 +90,15 @@ Then
 ```
 sudo docker run 1234
 ```
+
+some Dockerfile commands:
+CMD-> run when new container starts  
+RUN->run at build time  
+ENTRYPOINT->assign commands. can be overriden
+```
+sudo docker run --entrypoint="/bin/sh" -it yd
+```
+
 By default, the tag name is empty,
 Add a tag:
 ```
