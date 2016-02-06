@@ -1,5 +1,50 @@
 #### pkleadocker
+check docker info
+```
+sudo docker -D info
+```
 
+pull images from web
+```
+sudo docker pull busybox
+```
+list all images
+```
+sudo docker images
+```
+
+search images:
+```
+sudo docker search mysql
+```
+
+press ctrl+p and ctrl+q to detach a container,  
+and run 
+```
+sudo docker ps
+```
+to list all running docker ps  
+To attach
+```
+sudo docker attach NAME
+```
+
+stop and start
+```
+sudo docker stop c437777
+```
+to see all ps, including stopped
+```
+sudo docker ps -a
+```
+```
+sudo docker start 437777 (must attach to run)
+```
+
+after log in,  create a file, then diff command
+```
+docker diff 437777
+```
 
 pause and unpause
 ```
