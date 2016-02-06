@@ -155,6 +155,12 @@ sudo docker push yourdockeraccount/imagename
 sudo docker login
 ```
 
+#### cp6
+to check ip of container:
+```
+docker inspect <idofcontainer>
+```
+
 #### cp7
 - data volume
 First add volume in dockerfile:
