@@ -261,3 +261,11 @@ another:
 sudo docker run –it --volumes-from container1 imagename
 ```
 
+Never use a data volume as storage during the build process. Ex
+```
+FROM ubuntu:14.04
+VOLUME /MountPointDemo
+RUN date > /MountPointDemo/date.txt
+RUN cat /MountPointDemo/date.txt
+```
+This will render an error.
