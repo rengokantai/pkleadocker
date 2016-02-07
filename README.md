@@ -92,9 +92,12 @@ sudo docker run 1234
 ```
 
 some Dockerfile commands:
+basic: FROM, MAINTAINER  
 CMD-> run when new container starts  
 RUN->run at build time  
-ENTRYPOINT->assign commands. can be overriden
+ENTRYPOINT->assign commands. can be overriden  
+Other instructions: USER(login user), EXPOSE (port number),COPY ,ADD ,WORKDIR 
+Rarely use: ONBUILD, VOLUME
 ```
 sudo docker run --entrypoint="/bin/sh" -it yd
 ```
@@ -186,6 +189,29 @@ get ip and connect
 wget -qO- 172.17.0.1
 ```
 
+-p parameter. syntax: localip:containerip
+```
+sudo docker run -d -p 180:80 yd //not a good solution, we can use `sudo docker run -d -p 80 yd` to auto-generate ip
+```
+check use iptables
+```
+sudo iptables -t nat -L -n
+```
+
+Or more specific
+```
+ubuntu@ip-172-31-56-213:~$ sudo docker inspect --format='{{.Config.ExposedPorts}}' 43777
+```
+
+auto generate using assigned ip
+```
+sudo docker run -d -p 198.51.100.73::80 yd (auto-generate)
+sudo docker run -d -p 198.51.100.73:80:80 yd
+```
+if we add EXPOSE instruction in Dockerfile, we use
+```
+sudo docker run -d -P yd (auto binding ip)
+```
 
 
 #### cp7
