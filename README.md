@@ -243,3 +243,21 @@ Or, we can explicitly appoint mount point
 sudo docker run –v /MountPoint -it ubuntu:14.04
 ```
 
+Delete a mount volume of a container
+```
+sudo docker rm -fv f7777
+```
+
+create mounting point
+```
+sudo docker run -v /tmp/hostdir:/MountPoint -it ubuntu:14.04  //host(monutingpoint:container)
+```
+use data from other containers
+```
+sudo docker run -lt --name="container1" -v /mount imagename
+```
+another:
+```
+sudo docker run –it --volumes-from container1 imagename
+```
+
