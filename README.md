@@ -269,3 +269,36 @@ RUN date > /MountPointDemo/date.txt
 RUN cat /MountPointDemo/date.txt
 ```
 This will render an error.
+
+
+- cp9
+```
+sudo gpasswd -a jenkins docker
+```
+
+
+- cp10
+
+show pid of a container
+```
+sudo docker inspect --format "{{ .State.Pid }}" 1234
+```
+And get pid of container.
+```
+ps -ef
+```
+And get environment
+```
+sudo cat -v /proc/2543/environ
+sudo ls /proc/2543/ns
+```
+get all mount points of a container,log in to container,
+```
+cat /proc/mounts
+```
+
+
+show memory info of container
+```
+/sys/fs/cgroup/memory/docker/
+```
